@@ -144,6 +144,23 @@ let imgArray = [
 
 let con = document.getElementById('con')
 const img = document.createElement('img')
+const btn1 = document.createElement('button')
+const btn2 = document.createElement('button')
+
+btn1.innerText ="left"
+btn2.innerText ="right"
+
+left.index = 0
+img.width = 300
+
+img.src = imgArray[index].img_url
+content.appeChild(img)
+content.appeChild(btn1)
+content.appeChild(btn2)
+
+btn1.onclick =()=>{
+
+}
 
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
