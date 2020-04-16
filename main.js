@@ -1,11 +1,16 @@
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 // let id = document.querySelector('#text')
 // let btn = document.querySelector('#btn')
-//
+
 // btn.onclick = () => {
 //     id.style.display = 'none'
 // }
-
+//aбо так
+//     btn.onclick = () => {
+//         id.hidden
+//             ? id.hidden = false
+//             : id.hidden = true
+//     }
 // // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 // btn.onclick = () => {
 //     btn.style.display = 'none'
@@ -26,48 +31,120 @@
 // }
 
 // - Создайте меню, которое раскрывается/сворачивается при клике
-    let mainMenu = document.getElementById('mainMenu');
-    let subMenu = document.getElementById('subMenu');
-
-let flag = false
-mainMenu.onclick = event => {
-    if (flag) {
-        subMenu.style.display = "block";
-        flag = false;
-    } else {
-        subMenu.style.display = "none";
-        flag = true
-    }
-}
+//     let mainMenu = document.getElementById('mainMenu');
+//     let subMenu = document.getElementById('subMenu');
+//
+// let flag = false
+// mainMenu.onclick = event => {
+//     if (flag) {
+//         subMenu.style.display = "block";
+//         flag = false;
+//     } else {
+//         subMenu.style.display = "none";
+//         flag = true
+//     }
+// }
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
 //  Добавьте каждому комментарию по кнопке для сворачивания его body.
-//
+let comment= [
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'}
+]
+
+let content = document.querySelector("#content")
+comment.forEach(item=>{
+    let div = document.createElement("div")
+    let h2 = document.createElement("h2")
+    let p= document.createElement("p")
+    let button= document.createElement("button")
+
+    button.innerText = 'hide'
+    h2.innerText = item.title
+    p.innerText = item.body
+
+    button.onclick = () => {
+        h2.hidden
+            ? h2.hidden = false
+            : h2.hidden = true
+    }
+    div.appendChild(h2)
+    div.appendChild(p)
+    div.appendChild(button)
+    content.appendChild(div)
+
+})
+
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 // Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
 
+let but = document.getElementById('but')
+let input1 = document.getElementById('input1')
+let input2 = document.getElementById('input2')
+let input21 = document.getElementById('input21')
+let input22 = document.getElementById('input22')
 
-
-// let btn_2 = document.getElementById('btn_2')
-// btn_2.onclick = () => {
-//     console.log(document.forms.mainForm.imya);
-// }
+but.onclick = () => {
+    console.log(document.forms.form1.input1.value);
+    console.log(document.forms.form1.input2.value);
+    console.log(document.forms.form2.input21.value);
+    console.log(document.forms.form2.input22.value);
+}
 
 // - Створити функцію, яка генерує таблицю.
 // Перший аргумент визначає кількість строк.
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
-//
-//
+let cont = document.getElementById('cont')
+function createTable(rows,cols,tag) {
+    const table = document.createElement('table');
+
+
+    for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+            const td = document.createElement('td');
+            //td.innerHTML = i.toString()+ j.toString()
+            td.innerHTML= i +''+ j
+            tr.appendChild(td)
+        }
+        table.appendChild(tr)
+    }
+    tag.appendChild(table)
+}
+createTable(4,5,cont)
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
 //
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
-//
-//
+let imgArray = [
+    {
+        id:1,
+        img_url: 'philips-01.jpg'
+    },
+        {
+        id:2,
+        img_url: 'philips-01.jpg'
+    },
+        {
+        id:3,
+        img_url: 'philips-01.jpg'
+    },
+        {
+        id:4,
+        img_url: 'philips-01.jpg'
+    },
+]
+
+let con = document.getElementById('con')
+const img = document.createElement('img')
+
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Якщо людина вводить слово і воно міститься в масиві не цензурних слів
