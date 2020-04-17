@@ -125,25 +125,36 @@ createTable(4,5,cont)
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 let imgArray = [
     {
-        id:1,
-        img_url: '142019055_1.jpg'
+        id: 1,
+        img_url: 'img/142019055_1.jpg'
     },
-        {
-        id:2,
-        img_url: '142019055_2.jpg'
+    {
+        id: 2,
+        img_url: 'img/142019055_2.jpg'
     },
-        {
-        id:3,
-        img_url: '142019055_3.jpg'
+    {
+        id: 3,
+        img_url: 'img/142019055_3.jpg'
+    },
+    {
+        id: 3,
+        img_url: 'img/142019055_4.jpg'
+    },
+    {
+        id: 3,
+        img_url: 'img/142019055_5.jpg'
+    },
+    {
+        id: 3,
+        img_url: 'img/142019055_6.jpg'
     },
 
 ]
 
-let con = document.getElementById('con')
+let content1 = document.getElementById('content1')
 const img = document.createElement('img')
 const btn1 = document.createElement('button')
 const btn2 = document.createElement('button')
-
 btn1.innerText ="left"
 btn2.innerText ="right"
 
@@ -151,23 +162,22 @@ let index = 0
 img.width = 300
 
 img.src = imgArray[index].img_url
-con.appeChild(img)
-con.appeChild(btn1)
-con.appeChild(btn2)
+content1.appendChild(img)
+content1.appendChild(btn1)
+content1.appendChild(btn2)
 
 btn1.onclick =()=>{
 index -1 <0
     ?index = imgArray.length-1
     :index=index-1
-
     img.src = imgArray[index].img_url
 }
 btn2.onclick =()=>{
-index +1 < imgArray.length-1
+index +1 > imgArray.length-1
     ?index = 0
     :index=index+1
 
-    img.src = imgArray[index].img_url
+    img.src = imgArray[index].img_url;
 }
 
 // - Сворити масив не цензцрних слів.
