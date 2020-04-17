@@ -1,49 +1,49 @@
-// - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
-// let id = document.querySelector('#text')
-// let btn = document.querySelector('#btn')
+//- Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+let id = document.querySelector('#text')
+let btn = document.querySelector('#btn')
 
-// btn.onclick = () => {
-//     id.style.display = 'none'
-// }
+btn.onclick = () => {
+    id.style.display = 'none'
+}
 //aбо так
-//     btn.onclick = () => {
-//         id.hidden
-//             ? id.hidden = false
-//             : id.hidden = true
-//     }
-// // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
-// btn.onclick = () => {
-//     btn.style.display = 'none'
-// }
+    btn.onclick = () => {
+        id.hidden
+            ? id.hidden = false
+            : id.hidden = true
+    }
+// - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+btn.onclick = () => {
+    btn.style.display = 'none'
+}
 
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
 // При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-// let input = document.getElementById('number')
-// let submit = document.getElementById('submit')
-//
-// submit.onclick = () => {
-//     const value = input.value
-//     if (value < 18 && value > 0) {
-//         alert('your age less then 18 ')
-//     } else {
-//         alert('everithing ok')
-//     }
-// }
+let input = document.getElementById('number')
+let submit = document.getElementById('submit')
 
-// - Создайте меню, которое раскрывается/сворачивается при клике
-//     let mainMenu = document.getElementById('mainMenu');
-//     let subMenu = document.getElementById('subMenu');
-//
-// let flag = false
-// mainMenu.onclick = event => {
-//     if (flag) {
-//         subMenu.style.display = "block";
-//         flag = false;
-//     } else {
-//         subMenu.style.display = "none";
-//         flag = true
-//     }
-// }
+submit.onclick = () => {
+    const value = input.value
+    if (value < 18 && value > 0) {
+        alert('your age less then 18 ')
+    } else {
+        alert('everithing ok')
+    }
+}
+
+//- Создайте меню, которое раскрывается/сворачивается при клике
+    let mainMenu = document.getElementById('mainMenu');
+    let subMenu = document.getElementById('subMenu');
+
+let flag = false
+mainMenu.onclick = event => {
+    if (flag) {
+        subMenu.style.display = "block";
+        flag = false;
+    } else {
+        subMenu.style.display = "none";
+        flag = true
+    }
+}
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
@@ -218,34 +218,75 @@ let users = [
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
 
-// let resolver = document.getElementsByClassName('resolver')[0];
-// for (const user of users) {
-//     let div = document.createElement('div')
-//     div.innerText=JSON.stringify(users)
-//     resolver.appendChild(div)
-// }
-// let cbox = document.getElementById('cbox')
-// cbox.onclick = function () {
-//     resolver.innerText = ''
-//     if (cbox.checked){
-//         for (const user of users ) {
-//             let div = document.createElement('div')
-//             div.innerText = JSON.stringify(user)
-//             resolver.appendChild(div)
-//         }
-//     }
-//     else {
-//         for(const user of users) {
-//             if(user.age > 29) {
-//                 let div = document.createElement('div')
-//                 div.innerText= JSON.stringify(user)
-//                 resolver.appendChild(div)
-//             }
-//         }
-//     }
-//
-// }
+let resolver = document.getElementsByClassName('resolver')[0];
+for (const user of users) {
+    let div = document.createElement('div')
+    div.innerText=JSON.stringify(users)
+    resolver.appendChild(div)
+}
+let cbox = document.getElementById('cbox')
+let cbox2 = document.getElementById('cbox2')
+let cbox3 = document.getElementById('cbox3')
+cbox.onclick = function () {
+    resolver.innerText = ''
+    if (cbox.checked){
+        for (const user of users ) {
+            let div = document.createElement('div')
+            div.innerText = JSON.stringify(user)
+            resolver.appendChild(div)
+        }
+    }
+    else {
+        for(const user of users) {
+            if(user.status) {
+                let div = document.createElement('div')
+                div.innerText= JSON.stringify(user)
+                resolver.appendChild(div)
+            }
+        }
+    }
 
+}
+cbox2.onclick = function () {
+    resolver.innerText = ''
+    if (cbox.checked){
+        for (const user of users ) {
+            let div = document.createElement('div')
+            div.innerText = JSON.stringify(user)
+            resolver.appendChild(div)
+        }
+    }
+    else {
+        for(const user of users) {
+            if(user.age > 29) {
+                let div = document.createElement('div')
+                div.innerText= JSON.stringify(user)
+                resolver.appendChild(div)
+            }
+        }
+    }
+
+}
+cbox3.onclick = function () {
+    resolver.innerText = ''
+    if (cbox.checked){
+        for (const user of users ) {
+            let div = document.createElement('div')
+            div.innerText = JSON.stringify(user)
+            resolver.appendChild(div)
+        }
+    }
+    else {
+        for(const user of users) {
+            if(user.address.city == 'Kyiv') {
+                let div = document.createElement('div')
+                div.innerText= JSON.stringify(user)
+                resolver.appendChild(div)
+            }
+        }
+    }
+
+}
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
