@@ -126,20 +126,17 @@ createTable(4,5,cont)
 let imgArray = [
     {
         id:1,
-        img_url: 'philips-01.jpg'
+        img_url: '142019055_1.jpg'
     },
         {
         id:2,
-        img_url: 'philips-01.jpg'
+        img_url: '142019055_2.jpg'
     },
         {
         id:3,
-        img_url: 'philips-01.jpg'
+        img_url: '142019055_3.jpg'
     },
-        {
-        id:4,
-        img_url: 'philips-01.jpg'
-    },
+
 ]
 
 let con = document.getElementById('con')
@@ -150,16 +147,27 @@ const btn2 = document.createElement('button')
 btn1.innerText ="left"
 btn2.innerText ="right"
 
-left.index = 0
+let index = 0
 img.width = 300
 
 img.src = imgArray[index].img_url
-content.appeChild(img)
-content.appeChild(btn1)
-content.appeChild(btn2)
+con.appeChild(img)
+con.appeChild(btn1)
+con.appeChild(btn2)
 
 btn1.onclick =()=>{
+index -1 <0
+    ?index = imgArray.length-1
+    :index=index-1
 
+    img.src = imgArray[index].img_url
+}
+btn2.onclick =()=>{
+index +1 < imgArray.length-1
+    ?index = 0
+    :index=index+1
+
+    img.src = imgArray[index].img_url
 }
 
 // - Сворити масив не цензцрних слів.
